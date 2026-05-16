@@ -448,6 +448,62 @@
       margin: 0 auto;
     }
 
+    /* Card spanning full width for 3rd project */
+    .project-card.card-full {
+      grid-column: 1 / -1;
+      aspect-ratio: 16/7;
+    }
+
+    .card-neuro {
+      background: linear-gradient(135deg, #0d0d1a 0%, #0f1f3d 50%, #0a1628 100%);
+      border: 1px solid rgba(99, 179, 237, 0.15);
+    }
+
+    .card-neuro:hover {
+      border-color: rgba(99, 179, 237, 0.4);
+      box-shadow: 0 24px 80px rgba(56, 189, 248, 0.12);
+    }
+
+    .card-neuro .card-title {
+      color: #e0f2fe;
+    }
+
+    .card-neuro .card-num {
+      border: 1px solid rgba(99, 179, 237, 0.25);
+      color: rgba(99, 179, 237, 0.7);
+    }
+
+    .card-neuro .card-divider {
+      background: rgba(99, 179, 237, 0.1);
+    }
+
+    .card-neuro .card-desc {
+      color: rgba(224, 242, 254, 0.55);
+    }
+
+    .card-neuro .card-icon {
+      background: rgba(99, 179, 237, 0.08);
+    }
+
+    .neuro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .neuro-tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      border: 1px solid rgba(99, 179, 237, 0.2);
+      color: rgba(99, 179, 237, 0.65);
+      letter-spacing: 0.05em;
+      background: rgba(99, 179, 237, 0.05);
+    }
+
     .project-card {
       position: relative;
       aspect-ratio: 4/5;
@@ -651,7 +707,7 @@
       width: 100%;
     }
 
-    /* ── Footer ── */
+    /* ── Footer / Contact ── */
     .footer {
       background: #fafafa;
       color: #000;
@@ -687,23 +743,56 @@
       letter-spacing: -0.03em;
     }
 
-    .footer-grid {
+    /* Contact form layout */
+    .contact-wrap {
       display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
-      gap: 2rem;
-      align-items: end;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
       position: relative;
       z-index: 1;
+      max-width: 900px;
     }
 
-    .footer-socials {
+    .contact-info {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.5rem;
+    }
+
+    .contact-info-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #888;
+      font-family: monospace;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-email-link {
+      font-family: var(--font-heading);
+      font-size: clamp(15px, 2.2vw, 28px);
+      font-weight: 500;
+      text-decoration: none;
+      color: #000;
+      letter-spacing: -0.02em;
+      word-break: break-all;
+      transition: color 0.3s;
+    }
+
+    .contact-email-link:hover {
+      color: var(--accent);
+    }
+
+    .contact-socials {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
     }
 
     .footer-link {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 500;
       color: #000;
       text-decoration: none;
@@ -716,26 +805,114 @@
       text-underline-offset: 4px;
     }
 
-    .footer-email {
-      font-family: var(--font-heading);
-      font-size: clamp(16px, 2.8vw, 42px);
+    /* Contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-field label {
+      font-size: 12px;
       font-weight: 500;
-      text-decoration: none;
-      color: #000;
-      letter-spacing: -0.02em;
-      word-break: break-all;
-      transition: color 0.3s;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #555;
     }
 
-    .footer-email:hover {
-      color: var(--accent);
+    .form-field input,
+    .form-field textarea {
+      background: #fff;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-size: 15px;
+      font-family: var(--font-body);
+      color: #111;
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      resize: none;
     }
 
-    .footer-rights {
-      text-align: right;
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1);
+    }
+
+    .form-field textarea {
+      min-height: 130px;
+    }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      background: #000;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+      transition: background 0.3s, transform 0.25s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .form-submit svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .form-success {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 14px;
+      font-weight: 500;
+      color: #16a34a;
+      margin-top: 0.5rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      position: relative;
+      z-index: 1;
       font-size: 13px;
-      color: var(--text-gray);
-      line-height: 1.6;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ── Responsive ── */
@@ -918,6 +1095,42 @@
         </a>
       </div>
 
+      <!-- Card 3 — AI Adaptive Learning OS (full-width) -->
+      <div style="grid-column: 1 / -1;">
+        <a href="#" class="project-card card-dark card-neuro card-full reveal"
+          style="transition-delay:240ms; display:flex; flex-direction:row; align-items:center; gap:2rem; aspect-ratio:unset; min-height:280px;">
+          <img
+            src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+            alt="AI Adaptive Learning OS" class="card-img">
+
+          <!-- Left: icon + number -->
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.75rem;flex-shrink:0;">
+            <div class="card-icon">
+              <iconify-icon icon="lucide:brain-circuit" style="font-size:26px;color:#93c5fd"></iconify-icon>
+            </div>
+            <span class="card-num">03</span>
+          </div>
+
+          <!-- Right: content -->
+          <div style="position:relative;z-index:2;flex:1;">
+            <h3 class="card-title" style="font-size:clamp(22px,3vw,40px);margin-bottom:0.75rem;">AI Adaptive Learning OS</h3>
+            <p class="card-desc" style="max-width:54rem;line-height:1.6;">
+              An AI-driven academic &ldquo;nervous system&rdquo; that treats learning as a biological process. Integrates wearable data with <strong style="color:rgba(147,197,253,0.9)">Simple Temporal Networks with Uncertainty (STNUs)</strong> to build schedules that adapt to real-life volatility and stress. Optimizes memory via Spaced Repetition, protects mental health through rejuvenation blocks &amp; chronotype alignment, and uses <strong style="color:rgba(147,197,253,0.9)">metacognitive scaffolding</strong> to gradually reduce reliance on the tool — a framework for sustainable, high-performance learning.
+            </p>
+            <div class="neuro-tags">
+              <span class="neuro-tag">Cognitive Science</span>
+              <span class="neuro-tag">AI</span>
+              <span class="neuro-tag">Psychology</span>
+              <span class="neuro-tag">STNUs</span>
+              <span class="neuro-tag">Front-End Dev</span>
+              <span class="neuro-tag">Back-End Dev</span>
+              <span class="neuro-tag">Data Visualization</span>
+              <span class="neuro-tag">Security</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -934,21 +1147,60 @@
   <!-- ═══ FOOTER / CONTACT ═══ -->
   <footer id="contact" class="footer">
     <div class="footer-bg-text">SRIKAR.</div>
-    <div class="footer-title reveal">Start a Project</div>
-    <div class="footer-grid">
-      <div class="footer-socials reveal">
-        <a href="https://www.linkedin.com/in/srikar-mani-kanta-kandrekula" class="footer-link" target="_blank">LinkedIn
-          ↗</a>
-        <a href="https://github.com/srikar0112" class="footer-link" target="_blank">GitHub ↗</a>
+    <div class="footer-title reveal">Contact Me</div>
+
+    <div class="contact-wrap">
+
+      <!-- Left: info -->
+      <div class="contact-info reveal">
+        <div>
+          <p class="contact-info-label">Email me directly</p>
+          <a href="mailto:24pa1a1286@vishnu.edu.in" class="contact-email-link">24pa1a1286@vishnu.edu.in</a>
+        </div>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/srikar-mani-kanta-kandrekula" class="footer-link" target="_blank">LinkedIn ↗</a>
+          <a href="https://github.com/srikar0112" class="footer-link" target="_blank">GitHub ↗</a>
+        </div>
+        <p style="font-size:14px;color:#888;line-height:1.6;max-width:24rem;">
+          Have an idea, a project, or just want to connect? Fill in the form and I'll get back to you.
+        </p>
       </div>
-      <div class="reveal" style="transition-delay:100ms">
-        <a href="mailto:24pa1a1286@vishnu.edu.in" class="footer-email">
-          24pa1a1286@vishnu.edu.in
-        </a>
-      </div>
-      <div class="footer-rights reveal" style="transition-delay:200ms">
-        &copy; 2026 Srikar M.K.<br>All rights reserved.
-      </div>
+
+      <!-- Right: form -->
+      <form class="contact-form reveal" id="contactForm" style="transition-delay:120ms" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Your Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Ravi Kumar" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Your Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="ravi@example.com" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-subject">Subject</label>
+          <input type="text" id="cf-subject" name="subject" placeholder="Project enquiry / Collaboration…">
+        </div>
+        <div class="form-field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" placeholder="Tell me what's on your mind…" required></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="cf-submit">
+          Send Message
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+        <div class="form-success" id="formSuccess">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Message sent! I'll reply soon.
+        </div>
+      </form>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Srikar Mani Kanta. All rights reserved.</span>
+      <span>Vijayawada, IN</span>
     </div>
   </footer>
 
@@ -963,30 +1215,57 @@
     const lenis = new Lenis({
       duration: 1.2,
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
     });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
 
-    /* ── Custom cursor ── */
+    /* ── Unified rAF loop — Lenis + cursor + parallax all in one tick ── */
     const dot = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
-    window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    function animCursor() {
+    let scrollY = 0;
+    const heroContent = document.getElementById('hero-content');
+    const nav = document.getElementById('main-nav');
+    // Cache parallax elements once for better scroll performance
+    const parallaxUp = document.querySelectorAll('.parallax-card-up');
+    const parallaxDown = document.querySelectorAll('.parallax-card-down');
+    
+    window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+    
+    /* Track Lenis scroll value (avoids calling window.scrollY repeatedly) */
+    lenis.on('scroll', ({ scroll }) => { scrollY = scroll; });
+
+    function raf(time) {
+      lenis.raf(time);
+
+      /* Cursor */
       dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
       rx += (mx - rx) * 0.12;
       ry += (my - ry) * 0.12;
       ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
-      requestAnimationFrame(animCursor);
-    }
-    animCursor();
 
-    /* ── Scroll-shrink nav ── */
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+      /* Nav */
+      nav.classList.toggle('scrolled', scrollY > 60);
+
+      /* Parallax cards — small multiplier to keep it subtle */
+      const offsetUp = `${scrollY * -0.03}px`;
+      const offsetDown = `${scrollY * 0.03}px`;
+      if (offsetUp !== (window.__prevOffsetUp || '')) {
+        parallaxUp.forEach(el => el.style.setProperty('--offset-up', offsetUp));
+        window.__prevOffsetUp = offsetUp;
+      }
+      if (offsetDown !== (window.__prevOffsetDown || '')) {
+        parallaxDown.forEach(el => el.style.setProperty('--offset-down', offsetDown));
+        window.__prevOffsetDown = offsetDown;
+      }
+
+      /* Hero content parallax fade */
+      if (scrollY < 900) {
+        heroContent.style.transform = `translateY(${scrollY * 0.32}px)`;
+        heroContent.style.opacity = Math.max(0, 1 - scrollY / 600);
+      }
+
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
     /* ── Reveal observer ── */
     const revealObs = new IntersectionObserver(entries => {
@@ -1007,23 +1286,40 @@
     }, { threshold: 0.3 });
     mObs.observe(document.querySelector('.manifesto'));
 
-    /* ── Parallax cards on scroll ── */
-    window.addEventListener('scroll', () => {
-      const s = window.scrollY;
-      document.querySelectorAll('.parallax-card-up').forEach(el =>
-        el.style.setProperty('--offset-up', `${s * -0.04}px`));
-      document.querySelectorAll('.parallax-card-down').forEach(el =>
-        el.style.setProperty('--offset-down', `${s * 0.04}px`));
-    });
-
-    /* ── Hero content fade on scroll ── */
-    const heroContent = document.getElementById('hero-content');
-    lenis.on('scroll', ({ scroll }) => {
-      if (scroll < 900) {
-        heroContent.style.transform = `translateY(${scroll * 0.38}px)`;
-        heroContent.style.opacity = Math.max(0, 1 - scroll / 580);
-      }
-    });
+    /* ── Contact form ── */
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name    = document.getElementById('cf-name').value.trim();
+        const email   = document.getElementById('cf-email').value.trim();
+        const subject = document.getElementById('cf-subject').value.trim() || 'Portfolio Contact';
+        const message = document.getElementById('cf-message').value.trim();
+        if (!name || !email || !message) {
+          /* Shake empty required fields */
+          ['cf-name','cf-email','cf-message'].forEach(id => {
+            const el = document.getElementById(id);
+            if (!el.value.trim()) {
+              el.style.borderColor = '#ef4444';
+              el.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.15)';
+              setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 2000);
+            }
+          });
+          return;
+        }
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent('24pa1a1286@vishnu.edu.in')}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        // Open Gmail compose window in a new tab
+        window.open(gmailUrl, '_blank');
+        /* Show success note */
+        const btn = document.getElementById('cf-submit');
+        const success = document.getElementById('formSuccess');
+        btn.disabled = true;
+        btn.style.opacity = '0.6';
+        success.style.display = 'flex';
+        setTimeout(() => { btn.disabled = false; btn.style.opacity = ''; success.style.display = 'none'; contactForm.reset(); }, 5000);
+      });
+    }
 
     /* ── Live clock ── */
     function updateTime() {
